@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "import/order": [2, {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "alphabetize": {
+        "order": "asc"
+      }
+    }]
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
