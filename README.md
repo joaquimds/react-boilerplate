@@ -107,17 +107,19 @@ targeted. These browsers are defined in `package.json`, under `browserslist`.
 In industry, a single `.env` file is used in development, and environment variables are loaded from the CI pipeline
 when the app is built for production. However, in this case, I have provided a `.env.development` and a `.env.production`
 file. The `development` file is used when running `npm start`, and the `production` file is 
-used when running `npm run build`.
+used when running `npm run build`. (See the top of `webpack.config.js` to see how I did this.)
+
+Environment variables are accessed on the `process.env` object - e.g. `process.env.REACT_APP_TITLE`.
 
 By convention, only `REACT_APP_` environment variables are loaded into the client side output file. This is to prevent
-the accidental inclusion of secret varialbes (e.g. `DB_PASSWORD`).
+the accidental inclusion of secret variabels (e.g. `DB_PASSWORD`).
 
-I have implemented this
-manually in `webpack.config.js`, but the `create-react-app` tool does the same thing.
+I have implemented this manually in `webpack.config.js`, but the `create-react-app` tool does the same thing.
 
 Note: actual environment variables will always take precedence over values specified in `.env` files.
 
-You should be able to see this difference when running `npm start` vs `npm run build`.
+You should be able to see environment variables in play when running `npm start` vs `npm run build`, as `REACT_APP_TITLE`
+has different values.
 
 ## Linting
 
@@ -129,3 +131,7 @@ Linting is provided by `eslint`. There are `scss` linters but I don't bother wit
 
 `eslint` is used for code cleanliness, not formatting. However, I have used the `prettier` plugin to integrate a code
 formatting tool called `prettier`. You can see the formatting settings in `.prettierrc`.
+
+## Testing
+
+TODO
